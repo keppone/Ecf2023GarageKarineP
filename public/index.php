@@ -6,4 +6,7 @@ require '../vendor/autoload.php';
 
 $router = new Router($_GET['url']);
 
-echo "hello world";
+$router->get('/', 'App\Controllers\SiteController@index');
+$router->get('/posts/:id', 'App\Controllers\SiteController@show');
+
+$router->run(); 
