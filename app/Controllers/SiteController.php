@@ -2,15 +2,16 @@
 
 namespace App\Controllers; 
 
-class SiteController {
+class SiteController extends Controller
+{
 
     public function index()
     {
-        echo'Je suis la homepage';
+        return $this->view('site.index');  
     }
 
     public function show(int $id)
     {
-        echo 'Je suis le post'. $id;
+       return $this->view('site.show', compact('id'));
     }
 }

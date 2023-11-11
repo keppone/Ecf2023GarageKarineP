@@ -1,0 +1,1 @@
+<h1> Voiture n°<?= $params['id']?></h1>
