@@ -1,1 +1,3 @@
-<h1> Voiture n°<?= $params['id']?></h1>
+<h1><?= $params['car']->name?></h1>
+<p><?= $params['car']->model?></p>
+<a href ="voiture/" class="btn btn-secondary">Retour</a>

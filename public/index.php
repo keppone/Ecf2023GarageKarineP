@@ -10,7 +10,8 @@ define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
 
 $router = new Router($_GET['url']);
 
-$router->get('/', 'App\Controllers\SiteController@index');
+$router->get('/', 'App\Controllers\SiteController@welcome');
+$router->get('/voiture', 'App\Controllers\SiteController@index');
 $router->get('/voiture/:id', 'App\Controllers\SiteController@show');
 
 $router->run(); 

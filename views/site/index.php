@@ -1,3 +1,18 @@
-<h1> Voiture en location</h1>
+<h1> Nos voiture de locations </h1>
 
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+<?php foreach($params['cars'] as $car): ?>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h2 class="card-title"><?= $car->name ?></h2>
+            <p class="card-text"><?= $car->model?></p>
+        </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item"><?= $car->price?></li>
+            <li class="list-group-item"><?= $car->mileage?></li>
+            <li class="list-group-item"><?= $car->dateInCirculation?></li>
+            </ul>
+            <a href="/voiture/<?=$car->id ?>" class="btn btn-primary"> Lire plus</a>
+        </div>
+    </div>
+<?php endforeach ?>
+
