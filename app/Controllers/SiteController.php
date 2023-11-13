@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Car;
 
 class SiteController extends Controller
 {
@@ -12,17 +13,17 @@ class SiteController extends Controller
 
     public function index()
     {
-        $stmt= $this->db->getPDO()->query('SELECT * FROM car');
-        $cars = $stmt -> fetchAll();
-        
+        $car = new Car($this->getDB());
+        $cars = $car->all();
+
         return $this->view('site.index', compact('cars'));  
     }
 
     public function show (int $id)
     {
-        $stmt = $this->db->getPDO()->prepare('SELECT * FROM car WHERE id = ?');
-        $stmt->execute([$id]);
-        $car = $stmt->fetch();
+        $car = new Car($this->getDB());
+        $car = $car->findById($id);
+
         return $this->view('site.show', compact('car'));
     }
 

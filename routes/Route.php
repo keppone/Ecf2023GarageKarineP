@@ -33,10 +33,14 @@ class Route {
     public function execute()
     {
         $params = explode('@', $this->action);
-        $controller = new $params [0](new DBConnection('Ecf2023GarageKarineP', '127.0.0.1', 'user_vparrot', '8LHCh4f7yY4s7w')); 
+        $controller = new $params [0](new DBConnection(DB_NAME, DB_HOST, DB_USER, DB_PWD)); 
         $method = $params[1];
 
         return isset($this->matches[1]) ? $controller->$method($this->matches[1]) : $controller->$method(); 
 
     }
+    
+    
+    
+     
 }
