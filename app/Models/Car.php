@@ -3,6 +3,7 @@
 namespace App\Models; 
 
 use DateTime;
+use App\Models\Model;
 
 class Car extends Model{
     

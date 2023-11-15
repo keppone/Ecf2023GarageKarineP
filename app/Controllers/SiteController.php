@@ -3,14 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\Car;
+use App\Controllers\Controller;
 
 class SiteController extends Controller
 {
-    public function welcome()
-    {
-        return $this->view('site.welcome');  
-    }
-
     public function index()
     {
         $car = new Car($this->getDB());
@@ -19,7 +15,7 @@ class SiteController extends Controller
         return $this->view('site.index', compact('cars'));  
     }
 
-    public function show (int $id)
+    public function show(int $id)
     {
         $car = new Car($this->getDB());
         $car = $car->findById($id);

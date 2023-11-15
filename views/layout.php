@@ -11,7 +11,7 @@
    <nav class="navbar navbar-expand-lg navbar-ligh bg-info">
     <div class="container-fluid">
         <a class="navbar-brand"> 
-            <img alt="Garage V.PARROT" href="/" src="/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/logo V.Parrot.png" width="30" height="30">
+            <img alt="Garage V.PARROT" href="/Ecf2023GarageKarineP/" src="/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/logo V.Parrot.png" width="30" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,10 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Accueil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/voiture">Voitures</a>
+                    <a class="nav-link" aria-current="page" href="/Ecf2023GarageKarineP/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>

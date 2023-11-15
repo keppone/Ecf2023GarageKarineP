@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Database\DBConnection; 
 use PDO; 
 use Attribute;
+use Database\DBConnection; 
 
 #[\AllowDynamicProperties]
 
@@ -25,7 +25,7 @@ abstract class Model {
 
     public function findById(int $id) : Model
     {
-        return $this->query("SELECT * FROM {$this->table} WHERE id = ?");
+        return $this->query("SELECT * FROM {$this->table} WHERE id = ?", $id, true);
     }
 
     public function destroy(int $id) : bool
@@ -38,14 +38,14 @@ abstract class Model {
         $method= is_null($param) ? 'query' : 'prepare';
 
         if(
-            strpos($sql, 'DELETE')=== 0 
-            || strpos($sql, 'UPDATE')=== 0 
+            strpos($sql, 'DELETE')=== 0
+            || strpos($sql, 'UPDATE')=== 0
             || strpos($sql, 'CREATE')=== 0 ) {
             
             $stmt = $this->db->getPDO()->$method($sql);
             $stmt->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]); 
-            return $stmt->execute([$param]); 
-            }
+            return $stmt->execute([$param]);
+        }
 
         $fetch = is_null($single) ? 'fetchAll' : 'fetch';
         

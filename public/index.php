@@ -14,12 +14,13 @@ define('DB_PWD', '8LHCh4f7yY4s7w');
 
 $router = new Router($_GET['url']);
 
-$router->get('/', 'App\Controllers\SiteController@welcome');
-$router->get('/cars', 'App\Controllers\SiteController@index');
-$router->get('/cars/:id', 'App\Controllers\SiteController@show');
+$router->get('/', 'App\Controllers\SiteController@index');
+$router->get('/voiture/:id', 'App\Controllers\SiteController@show');
 
 $router->get('/admin/cars', 'App\Controllers\Admin\CarController@index');
 $router->post('/admin/cars/delete/:id', 'App\Controllers\Admin\CarController@destroy');
+$router->get('/admin/cars/edit/:id','App\Controllers\Admin\CarController@edit');
+$router->post('/admin/cars/edit/:id','App\Controllers\Admin\CarController@update');
 
 try {
     $router->run(); 

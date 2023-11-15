@@ -2,6 +2,7 @@
 namespace App\Controllers\Admin;
 
 use App\Models\Car;
+use App\Models\Model;
 use App\Controllers\Controller;
 
 
@@ -15,13 +16,20 @@ class CarController extends Controller {
         return $this->view('admin.car.index', compact('cars'));
     }
 
+    public function edit(int $id)
+    {
+        $car = (new Car($this->getDB()))->findById($id);
+
+        return $this->view('admin.car.edit', compact('car'));
+    }
+
     public function destroy(int $id)
     {
         $car = new Car($this->getDB());
         $result= $car->destroy($id);
 
         if ($result){
-            return header('Location: /admin/cars');
+            return header('Location:  /Ecf2023GarageKarineP/admin/cars');
         }
     }
 }

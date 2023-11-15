@@ -12,17 +12,18 @@
   </thead>
   <tbody>
     <?php foreach ($params['cars'] as $car): ?>
-    <tr>
-      <th scope="row"><?= $car-> id ?></th>
-      <td><?= $car->name ?></td>
-      <td><?= $car->model ?></td>
-      <td><?= $car->getDateCirculation() ?></td>
-      <td>
-          <a href="#" class="btn btn-warning">Modifier</a>
-          <form action = "/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline"></form>
+      <tr>
+        <th scope="row"><?= $car-> id ?></th>
+        <td><?= $car->name ?></td>
+        <td><?= $car->model ?></td>
+        <td><?= $car->getDateCirculation() ?></td>
+        <td>
+          <a href="/Ecf2023GarageKarineP/admin/cars/edit/<?= $car->id ?>" class="btn btn-warning">Modifier</a>
+          <form action = "/Ecf2023GarageKarineP/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline">
             <button type="submit" class="btn btn-danger">Supprimer</button>
-      </td>
-    </tr>
+          </form>
+        </td>
+      </tr>
     <?php endforeach ?>
   </tbody>
 </table>
