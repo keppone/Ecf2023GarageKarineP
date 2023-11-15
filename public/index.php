@@ -15,8 +15,11 @@ define('DB_PWD', '8LHCh4f7yY4s7w');
 $router = new Router($_GET['url']);
 
 $router->get('/', 'App\Controllers\SiteController@welcome');
-$router->get('/voiture', 'App\Controllers\SiteController@index');
-$router->get('/voiture/:id', 'App\Controllers\SiteController@show');
+$router->get('/cars', 'App\Controllers\SiteController@index');
+$router->get('/cars/:id', 'App\Controllers\SiteController@show');
+
+$router->get('/admin/cars', 'App\Controllers\Admin\CarController@index');
+$router->post('/admin/cars/delete/:id', 'App\Controllers\Admin\CarController@destroy');
 
 try {
     $router->run(); 
