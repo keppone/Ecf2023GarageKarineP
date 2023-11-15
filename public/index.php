@@ -1,6 +1,7 @@
 <?php
 
 use Router\Router;
+use App\Exceptions\NotFoundException;
 
 require '../vendor/autoload.php';
 
@@ -17,4 +18,8 @@ $router->get('/', 'App\Controllers\SiteController@welcome');
 $router->get('/voiture', 'App\Controllers\SiteController@index');
 $router->get('/voiture/:id', 'App\Controllers\SiteController@show');
 
-$router->run(); 
+try {
+    $router->run(); 
+}catch(NotFoundException $e) {
+    return $e->error404();
+}
