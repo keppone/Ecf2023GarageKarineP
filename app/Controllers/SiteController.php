@@ -12,7 +12,7 @@ class SiteController extends Controller
         $car = new Car($this->getDB());
         $cars = $car->all();
 
-        return $this->view('site.index', compact('cars'));  
+        return $this->view('site.index', compact('cars')); 
     }
 
     public function show(int $id)

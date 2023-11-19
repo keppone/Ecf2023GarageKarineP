@@ -23,13 +23,23 @@ class CarController extends Controller {
         return $this->view('admin.car.edit', compact('car'));
     }
 
+    public function update(int $id)
+    {
+        $car = new Car($this->getDB());
+        $result= $car->update($id, $_POST);
+
+        if ($result){
+            return header('Location: /admin/cars');
+        }
+    }
+
     public function destroy(int $id)
     {
         $car = new Car($this->getDB());
         $result= $car->destroy($id);
 
         if ($result){
-            return header('Location:  /Ecf2023GarageKarineP/admin/cars');
+            return header('Location: /admin/cars');
         }
     }
 }
