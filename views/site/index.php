@@ -14,7 +14,7 @@
             <li class="list-group-item">Kilomètrage : <?= $car->mileage?> km </li>
             <li class="list-group-item">Mise en Circulation : <?= $car->getDateCirculation()?></li>
             </ul>
-            <a href="/Ecf2023GarageKarineP/voiture/<?=$car->id ?>" class="btn btn-primary">détails</a>
+            <a href="/voiture/<?=$car->id ?>" class="btn btn-primary">détails</a>
         </div>
         <div>
 </div>

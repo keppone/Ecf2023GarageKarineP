@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/Ecf2023GarageKarineP/">Accueil</a>
+                    <a class="nav-link" aria-current="page" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
@@ -30,11 +30,11 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                <li class="nav-item">
-                    <a class="nav-link" href="/Ecf2023GarageKarineP/login">Connexion</a>
+                    <a class="nav-link" href="/login">Connexion</a>
                 </li> 
                 <?php if (isset($_SESSION['auth'])): ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Ecf2023GarageKarineP/logout">Se déconnecter</a>
+                    <a class="nav-link" href="/logout">Se déconnecter</a>
                 </li>
                 <?php endif ?>
             </ul>

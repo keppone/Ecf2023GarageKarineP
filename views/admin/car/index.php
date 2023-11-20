@@ -1,6 +1,6 @@
 <h1> Administration des publications des voitures</h1>
 
-<a href="/Ecf2023GarageKarineP/admin/cars/create" class="btn btn-success my-3">Insérer une nouvelle voiture</a>
+<a href="/admin/cars/create" class="btn btn-success my-3">Insérer une nouvelle voiture</a>
 
 <?php if(isset($_GET['success'])): ?>
     <div class="alert alert-success"> Vous êtes connecté!</div>
@@ -24,8 +24,8 @@
         <td><?= $car->model ?></td>
         <td><?= $car->getDateCirculation() ?></td>
         <td>
-          <a href="/Ecf2023GarageKarineP/admin/cars/edit/<?= $car->id ?>" class="btn btn-warning">Modifier</a>
-          <form action = "/Ecf2023GarageKarineP/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline">
+          <a href="/admin/cars/edit/<?= $car->id ?>" class="btn btn-warning">Modifier</a>
+          <form action = "/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline">
             <button type="submit" class="btn btn-danger">Supprimer</button>
           </form>
         </td>

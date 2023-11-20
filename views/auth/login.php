@@ -1,6 +1,20 @@
+<?php if (isset($_SESSION['errors'])): ?>
+
+<?php foreach($_SESSION['errors'] as $errorsArray): ?>
+    <?php foreach($errorsArray as $errors): ?>
+        <div class="alert alert-danger">
+            <?php foreach($errors as $error): ?>
+                <li><?= $error ?></li>
+            <?php endforeach ?> 
+        </div>
+    <?php endforeach ?>
+<?php endforeach ?>
+<?php endif ?>
+<?php session_destroy(); ?>
+
 <h1>Connexion</h1>
 
-<form action="/Ecf2023GarageKarineP/login" method="POST">
+<form action="/login" method="POST">
     <div class="form-group">
         <label for="email">Adresse e-mail</label>
         <input type="text" class="form-control" name="email" id="email">

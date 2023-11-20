@@ -1,6 +1,6 @@
 <h1> <?= $params['car']->name ?? 'Créer une nouvelle voiture' ?></h1>
 
-<form action="<?= isset($params['car']) ? "/Ecf2023GarageKarineP/admin/cars/edit/{$params['car']->id}" : "/Ecf2023GarageKarineP/admin/cars/create" ?>" method="POST">
+<form action="<?= isset($params['car']) ? "/admin/cars/edit/{$params['car']->id}" : "/admin/cars/create" ?>" method="POST">
     <div class="form-group">
         <label for="name">Nom</label>
         <input type="text" class="form-control" name="name" id="name" value ="<?= $params['car']->name ?? ' ' ?>">

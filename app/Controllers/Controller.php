@@ -35,7 +35,7 @@ abstract class Controller {
         if (isset($_SESSION['auth']) && $_SESION['auth']===1){
             return true;
         }else{
-            return header ('Location: /Ecf2023GarageKarineP/login');
+            return header ('Location: /login');
         }
     }
 
@@ -44,7 +44,7 @@ abstract class Controller {
         if (isset($_SESSION['auth'])){
             return true;
         }else{
-            return header ('Location: /Ecf2023GarageKarineP/login');
+            return header ('Location: /login');
         }
     }
 }
