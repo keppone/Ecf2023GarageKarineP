@@ -1,5 +1,11 @@
 <h1> Administration des publications des voitures</h1>
 
+<a href="/Ecf2023GarageKarineP/admin/cars/create" class="btn btn-success my-3">Insérer une nouvelle voiture</a>
+
+<?php if(isset($_GET['success'])): ?>
+    <div class="alert alert-success"> Vous êtes connecté!</div>
+<?php endif ?>
+
 <table class="table">
   <thead>
     <tr>

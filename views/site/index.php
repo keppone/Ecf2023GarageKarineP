@@ -1,6 +1,5 @@
 <h1>Bienvenue sur notre site de vente de voiture d'occasion</h1>
 
-
 <h2> Nos voitures de locations </h2>
 
 <?php foreach($params['cars'] as $car): ?>

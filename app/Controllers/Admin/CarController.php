@@ -12,21 +12,53 @@ class CarController extends Controller {
 
     public function index()
     {
+        $this->isConnected();
+        
         $cars = (new Car($this->getDB()))->all(); 
 
         return $this->view('admin.car.index', compact('cars'));
+
+    }
+
+       public function create()
+    {
+       $this->isConnected(); 
+
+        $carOption = (new CarOption($this->getDB()))->all();
+       
+        return $this->view('admin.car.form', compact('carOption'));
+
+    }
+
+       public function createCar()
+    {
+        $this->isConnected();
+
+        $car = new Car($this->getDB());
+        $carOption = array_pop($_POST);
+
+        $result= $car->create($_POST, $carOption);
+
+        if ($result){
+            return header('Location: /admin/cars');
+        } 
+
     }
 
     public function edit(int $id)
     {
+        $this->isConnected();
+
         $car = (new Car($this->getDB()))->findById($id);
         $carOption = (new CarOption($this->getDB()))->all();
 
-        return $this->view('admin.car.edit', compact('car', 'carOption'));
+        return $this->view('admin.car.form', compact('car', 'carOption'));
     }
 
     public function update(int $id)
     {
+        $this->isConnected();
+
         $car = new Car($this->getDB());
         $carOption = array_pop($_POST);
 
@@ -39,6 +71,8 @@ class CarController extends Controller {
 
     public function destroy(int $id)
     {
+        $this->isConnected();
+
         $car = new Car($this->getDB());
         $result= $car->destroy($id);
 

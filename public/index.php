@@ -17,7 +17,13 @@ $router = new Router($_GET['url']);
 $router->get('/', 'App\Controllers\SiteController@index');
 $router->get('/voiture/:id', 'App\Controllers\SiteController@show');
 
+$router->get('/login', 'App\Controllers\UserController@login');
+$router->post('/login', 'App\Controllers\UserController@loginPost');
+$router->get('/logout', 'App\Controllers\UserController@logout');
+
 $router->get('/admin/cars', 'App\Controllers\Admin\CarController@index');
+$router->get('/admin/cars/create', 'App\Controllers\Admin\CarController@create');
+$router->post('/admin/cars/create', 'App\Controllers\Admin\CarController@createCar');
 $router->post('/admin/cars/delete/:id', 'App\Controllers\Admin\CarController@destroy');
 $router->get('/admin/cars/edit/:id','App\Controllers\Admin\CarController@edit');
 $router->post('/admin/cars/edit/:id','App\Controllers\Admin\CarController@update');

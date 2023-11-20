@@ -11,7 +11,7 @@
    <nav class="navbar navbar-expand-lg navbar-ligh bg-info">
     <div class="container-fluid">
         <a class="navbar-brand"> 
-            <img alt="logo du site" src="/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/logo V.Parrot.png" width="30" height="30">
+            <img alt="V. PARROT" src="/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/logo V.Parrot.png" width="30" height="30">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item">
+                    <a class="nav-link" href="/Ecf2023GarageKarineP/login">Connexion</a>
+                </li> 
+                <?php if (isset($_SESSION['auth'])): ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Ecf2023GarageKarineP/logout">Se déconnecter</a>
+                </li>
+                <?php endif ?>
             </ul>
         </div>
     </div>

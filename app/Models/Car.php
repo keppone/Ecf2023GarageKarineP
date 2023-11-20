@@ -23,6 +23,19 @@ class Car extends Model{
         ", [$this->id]);
     }
 
+    public function create(array $data, ?array $relations = null)
+    {
+        parent::create($data);
+
+        $id = $this->get->getPDO()->lastInsertId();
+
+        foreach ($relations as $carOptionId){
+            $stmt=$this->db->getPDO()->prepare("INSERT car_option (carId, optionId) VALUES (?, ?)");
+            $stmt->execute([$id, $carOptionId]);
+        }
+        return true;
+    }
+
     public function update(int $id, array $data, ?array $relations = null) 
     {
         parent::update($id, $data); 
