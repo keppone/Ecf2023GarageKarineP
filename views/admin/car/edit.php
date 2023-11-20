@@ -1,6 +1,6 @@
 <h1>Modifier <?= $params['car']->name ?></h1>
 
-<form action="/admin/cars/edit/<?= $params['car']->id ?>" method="POST">
+<form action="/Ecf2023GarageKarineP/admin/cars/edit/<?= $params['car']->id ?>" method="POST">
     <div class="form-group">
         <label for="name">Nom</label>
         <input type="text" class="form-control" name="name" id="name" value ="<?= $params['car']->name ?>">
@@ -45,6 +45,23 @@
      <div class="form-group">
         <label for="caracFuel">Consommation : </label>
         <input type="text" class="form-control" name="caracFuel" id="caracFuel" value ="<?= $params['car']->caracFuel?>">
+    </div>
+
+    <div class="form-group">
+        <label for="carOption">Option et Equipement de la voiture : </label>
+        <select multiple class="form-control" id="carOption" name="carOption[]">
+            <?php foreach($params['carOption'] as $carOption): ?>
+            
+                <option value ="<?=$carOption->id?>"
+                <?php foreach($params['car']->getOptionCar() as $optionCar){
+                   echo ($carOption->id === $optionCar->id) ? 'selected': '';
+                }
+
+                ?>
+                ><?=$carOption->name?></option>
+            
+            <?php endforeach ?>
+        </select>
     </div>
 
 

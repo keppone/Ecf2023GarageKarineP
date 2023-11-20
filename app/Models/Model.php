@@ -28,7 +28,7 @@ abstract class Model {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
-    public function update(int $id, array $data) 
+    public function update(int $id, array $data, ?array $relations = null) 
     {
         $sqlRequestPart = "";
         $i = 1;

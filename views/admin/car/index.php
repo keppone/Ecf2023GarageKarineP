@@ -18,8 +18,8 @@
         <td><?= $car->model ?></td>
         <td><?= $car->getDateCirculation() ?></td>
         <td>
-          <a href="/admin/cars/edit/<?= $car->id ?>" class="btn btn-warning">Modifier</a>
-          <form action = "/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline">
+          <a href="/Ecf2023GarageKarineP/admin/cars/edit/<?= $car->id ?>" class="btn btn-warning">Modifier</a>
+          <form action = "/Ecf2023GarageKarineP/admin/cars/delete/<?= $car->id ?>" method ="POST" class="d-inline">
             <button type="submit" class="btn btn-danger">Supprimer</button>
           </form>
         </td>

@@ -22,4 +22,21 @@ class Car extends Model{
         WHERE co.carId = ?
         ", [$this->id]);
     }
+
+    public function update(int $id, array $data, ?array $relations = null) 
+    {
+        parent::update($id, $data); 
+
+        $stmt = $this->db->getPDO()->prepare("DELETE FROM car_option WHERE carId = ?");
+        $result = $stmt->execute([$id]);
+
+        foreach ($relations as $carOptionId){
+            $stmt=$this->db->getPDO()->prepare("INSERT car_option (carId, optionId) VALUES (?, ?)");
+            $stmt->execute([$id, $carOptionId]);
+        }
+        
+        if($result){
+            return true;
+        }
+    }
 }
