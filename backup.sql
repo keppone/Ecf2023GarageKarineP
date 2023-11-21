@@ -29,7 +29,6 @@ CREATE TABLE `car` (
   `price` varchar(255) NOT NULL,
   `mileage` int NOT NULL,
   `dateInCirculation` date NOT NULL,
-  `principalPicture` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,10 +40,74 @@ CREATE TABLE `car` (
 LOCK TABLES `car` WRITE;
 /*!40000 ALTER TABLE `car` DISABLE KEYS */;
 INSERT INTO `car` VALUES
-(1,'PEUGEOT 108','VTI 72 STYLE S&S 4CV 5P','9955',72564,'2020-03-01','/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/PEUGEOT-108-2787626_2.JPG'),
-(2,'CITROEN C5 AIRCROSS','PURETECH 130 S&S EAT8 SHINE','35990',3639,'2023-05-01','/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/CITROEN-C5-AIRCROSS-2801585_1.JPG'),
-(3,'CITROEN C3','SOCIETE BLUEHDI 100 S&S BVM FEEL NAV','9970',62200,'2019-02-01','/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/CITROEN_C3_1.jpg');
+(1,'PEUGEOT 108','VTI 72 STYLE S&S 4CV 5P','9955',72564,'2020-03-01'),
+(2,'CITROEN C5 AIRCROSS','PURETECH 130 S&S EAT8 SHINE','35990',3639,'2023-05-01'),
+(3,'CITROEN C3','SOCIETE BLUEHDI 100 S&S BVM FEEL NAV','9970',62200,'2019-02-01');
 /*!40000 ALTER TABLE `car` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `car_carac`
+--
+
+DROP TABLE IF EXISTS `car_carac`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `car_carac` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `carId` int DEFAULT NULL,
+  `caracId` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `carId` (`carId`),
+  KEY `caracId` (`caracId`),
+  CONSTRAINT `car_carac_ibfk_1` FOREIGN KEY (`carId`) REFERENCES `car` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `car_carac_ibfk_2` FOREIGN KEY (`caracId`) REFERENCES `caracteristics` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `car_carac`
+--
+
+LOCK TABLES `car_carac` WRITE;
+/*!40000 ALTER TABLE `car_carac` DISABLE KEYS */;
+INSERT INTO `car_carac` VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3);
+/*!40000 ALTER TABLE `car_carac` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `car_image`
+--
+
+DROP TABLE IF EXISTS `car_image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `car_image` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `carId` int NOT NULL,
+  `imageId` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `carId` (`carId`),
+  KEY `imageId` (`imageId`),
+  CONSTRAINT `car_image_ibfk_1` FOREIGN KEY (`carId`) REFERENCES `car` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `car_image_ibfk_2` FOREIGN KEY (`imageId`) REFERENCES `image` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `car_image`
+--
+
+LOCK TABLES `car_image` WRITE;
+/*!40000 ALTER TABLE `car_image` DISABLE KEYS */;
+INSERT INTO `car_image` VALUES
+(1,1,1),
+(2,2,3),
+(3,3,2);
+/*!40000 ALTER TABLE `car_image` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -85,6 +148,66 @@ INSERT INTO `car_option` VALUES
 (17,3,3),
 (18,3,4);
 /*!40000 ALTER TABLE `car_option` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `caracteristics`
+--
+
+DROP TABLE IF EXISTS `caracteristics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `caracteristics` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `color` varchar(100) DEFAULT NULL,
+  `gearbox` varchar(50) DEFAULT NULL,
+  `fiscalPower` int DEFAULT NULL,
+  `type` varchar(150) DEFAULT NULL,
+  `CRITAIR` int DEFAULT NULL,
+  `fuel` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `caracteristics`
+--
+
+LOCK TABLES `caracteristics` WRITE;
+/*!40000 ALTER TABLE `caracteristics` DISABLE KEYS */;
+INSERT INTO `caracteristics` VALUES
+(1,'blanc','Manuelle',4,'Citadine',1,'Essence'),
+(2,'gris','Automatique',7,'SUV-4x4',1,'Essence'),
+(3,'blanc','Manuelle',5,'Utilitaire',2,'Diesel');
+/*!40000 ALTER TABLE `caracteristics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `image`
+--
+
+DROP TABLE IF EXISTS `image`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `image` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `image`
+--
+
+LOCK TABLES `image` WRITE;
+/*!40000 ALTER TABLE `image` DISABLE KEYS */;
+INSERT INTO `image` VALUES
+(1,'peugeot-108-main','pictures/PEUGEOT-108-2787626_2.JPG'),
+(2,'citroen-C3-main','pictures/CITROEN_C3_1.jpg'),
+(3,'citroen-C5-main','pictures/CITROEN-C5-AIRCROSS-2801585_1.JPG');
+/*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -159,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-21  1:33:14
+-- Dump completed on 2023-11-21 17:42:39

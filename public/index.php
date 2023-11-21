@@ -7,10 +7,10 @@ require '../vendor/autoload.php';
 
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
-define('DB_NAME', 'i07wudo6armrb5ho');
-define('DB_HOST', 'lcpbq9az4jklobvq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com');
-define('DB_USER', 'pe4whqzwvi48pquh');
-define('DB_PWD', 'ueeivfa45e4o6u4b');
+define('DB_NAME', 'Ecf2023GarageKarineP');
+define('DB_HOST', '127.0.0.1');
+define('DB_USER', 'user_vparrot');
+define('DB_PWD', '8LHCh4f7yY4s7w');
 
 $router = new Router($_GET['url']);
 

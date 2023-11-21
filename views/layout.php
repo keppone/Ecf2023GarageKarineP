@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garage V. Parrot</title>
     <link rel="stylesheet" href = "assets/bootstrap.min.css">
+    <link rel="stylesheet" href = "public/css/style.css">
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-ligh bg-info">
+    <header>
+   <nav class="navbar navbar-expand-lg navbar-ligh">
     <div class="container-fluid">
         <a class="navbar-brand"> 
-            <img alt="V. PARROT" src="/Applications/MAMP/htdocs/Ecf2023GarageKarineP/pictures/logo V.Parrot.png" width="30" height="30">
+            <img alt="V. PARROT" src="pictures/logo V.Parrot.png" width="120px" height="120px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,11 +43,13 @@
         </div>
     </div>
 </nav>
+</header>
 
     <div class="container">
         <?= $content ?>
     </div>
 
-    <script src="assets/bootstrap.bundle.min.js"></script>
+<footer class="footer"></footer>
+<script src="assets/bootstrap.bundle.min.js"></script>
 </body>
 </html>

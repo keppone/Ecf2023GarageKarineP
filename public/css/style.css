@@ -1,0 +1,25 @@
+/*Navigateur initial*/
+*{
+    padding: 0;
+    margin: 2%;
+    box-sizing: border-box;
+    font-family: Hind, sans-serif;
+}
+
+h1{
+    font-family: montseray;
+}
+
+.navbar{
+        background-color: #D9E2F7;
+        height: auto;
+        font-size: x-large;
+}
+
+
+footer{
+        background-color: #D9E2F7;
+        height: 5rem;
+    }
+
+   

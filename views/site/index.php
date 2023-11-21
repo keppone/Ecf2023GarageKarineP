@@ -3,7 +3,7 @@
 <h2> Nos voitures de locations </h2>
 
 <?php foreach($params['cars'] as $car): ?>
-    <div class="card" style="width: 18rem;">
+    <div class="card d-flex justif-content-center" style="width: 18rem;">
         <img src="<?=$car->principalPicture?>" class="card mx-auto d-block" alt="image">
         <div class="card-body">
             <h5 class="card-title"><?= $car->name ?></h5>
