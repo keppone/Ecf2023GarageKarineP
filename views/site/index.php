@@ -1,10 +1,12 @@
-<h1>Bienvenue sur notre site de vente de voiture d'occasion</h1>
+<h1>Bienvenue sur notre site de vente de voitures d'occasion</h1>
 
-<h2> Nos voitures de locations </h2>
+<h2> Nos voitures d'occasion </h2>
 
 <?php foreach($params['cars'] as $car): ?>
     <div class="card d-flex justif-content-center" style="width: 18rem;">
-        <img src="<?=$car->principalPicture?>" class="card mx-auto d-block" alt="image">
+        <?php foreach($car->getImage() as $image): ?>
+        <img src="<?= $image->link?>" class="card-img-top" alt="Card image cap">
+        <?php endforeach ?>
         <div class="card-body">
             <h5 class="card-title"><?= $car->name ?></h5>
             <p class="card-text"><?= $car->model?></p>

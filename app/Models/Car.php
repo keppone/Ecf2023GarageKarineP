@@ -2,6 +2,7 @@
 
 namespace App\Models; 
 
+use PDO;
 use DateTime;
 use App\Models\Model;
 
@@ -20,6 +21,25 @@ class Car extends Model{
         SELECT o.* FROM optionCarEquipement o
         INNER JOIN car_option co ON co.optionId = o.id
         WHERE co.carId = ?
+        ", [$this->id]);
+    }
+
+    public function getImage()
+    {
+        return $this->query(" 
+        SELECT i.* FROM image i
+        INNER JOIN car_image ci ON ci.imageId = i.id
+        WHERE ci.carId = ?
+        ", [$this->id]);
+        
+    }
+
+    public function getCaracCar()
+    {
+        return $this->query(" 
+        SELECT ca.* FROM caracteristics ca
+        INNER JOIN car_carac cc ON cc.caracId = ca.id
+        WHERE cc.carId = ?
         ", [$this->id]);
     }
 
