@@ -12,6 +12,10 @@
 <?php endif ?>
 <?php session_destroy(); ?>
 
+<?php if(isset($_GET['success'])): ?>
+    <div class="alert alert-danger"> Vos identifiants sont erronées</div>
+<?php endif ?>
+
 <h1>Connexion</h1>
 
 <form action="/login" method="POST">
